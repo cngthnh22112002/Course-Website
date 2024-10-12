@@ -17,7 +17,7 @@ namespace CourseWebsite.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -102,7 +102,7 @@ namespace CourseWebsite.Migrations
 
                     b.ToTable("AbpFeatures");
 
-                    b.HasDiscriminator().HasValue("FeatureSetting");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("FeatureSetting");
 
                     b.UseTphMappingStrategy();
                 });
@@ -219,7 +219,7 @@ namespace CourseWebsite.Migrations
 
                     b.ToTable("AbpPermissions");
 
-                    b.HasDiscriminator().HasValue("PermissionSetting");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("PermissionSetting");
 
                     b.UseTphMappingStrategy();
                 });
@@ -1583,49 +1583,6 @@ namespace CourseWebsite.Migrations
                     b.ToTable("AbpUsers");
                 });
 
-            modelBuilder.Entity("CourseWebsite.Courses.Course", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Courses");
-                });
-
             modelBuilder.Entity("CourseWebsite.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")
@@ -1688,93 +1645,6 @@ namespace CourseWebsite.Migrations
                     b.HasIndex("TenancyName");
 
                     b.ToTable("AbpTenants");
-                });
-
-            modelBuilder.Entity("CourseWebsite.Relations.CourseSubject", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.ToTable("CourseSubjects");
-                });
-
-            modelBuilder.Entity("CourseWebsite.Subjects.Subject", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
@@ -2022,25 +1892,6 @@ namespace CourseWebsite.Migrations
                     b.Navigation("LastModifierUser");
                 });
 
-            modelBuilder.Entity("CourseWebsite.Relations.CourseSubject", b =>
-                {
-                    b.HasOne("CourseWebsite.Courses.Course", "Course")
-                        .WithMany("CourseSubjects")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CourseWebsite.Subjects.Subject", "Subject")
-                        .WithMany("CourseSubjects")
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Subject");
-                });
-
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
                 {
                     b.HasOne("Abp.Application.Editions.Edition", "Edition")
@@ -2110,16 +1961,6 @@ namespace CourseWebsite.Migrations
                     b.Navigation("Settings");
 
                     b.Navigation("Tokens");
-                });
-
-            modelBuilder.Entity("CourseWebsite.Courses.Course", b =>
-                {
-                    b.Navigation("CourseSubjects");
-                });
-
-            modelBuilder.Entity("CourseWebsite.Subjects.Subject", b =>
-                {
-                    b.Navigation("CourseSubjects");
                 });
 #pragma warning restore 612, 618
         }

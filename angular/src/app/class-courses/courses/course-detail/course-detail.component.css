@@ -1,0 +1,40 @@
+.course-offerings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Khoảng cách giữa các thẻ */
+  justify-content: flex-start; /* Căn các thẻ bắt đầu từ trái */
+  align-items: flex-start; /* Căn các thẻ theo dòng đầu tiên */
+}
+
+.course {
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 30px; /* Thay đổi padding để làm thẻ dài hơn */
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 0 1 calc(25% - 10px); /* Chia mỗi thẻ thành 25% chiều rộng, trừ khoảng cách */
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.course:hover {
+  transform: translateY(-5px);
+}
+
+.course img {
+  width: 100%;
+  height: 160px; /* Chiều cao ảnh */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  object-fit: cover; /* Đảm bảo ảnh vừa với khung */
+  display: block;
+}
+
+.course h2 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}

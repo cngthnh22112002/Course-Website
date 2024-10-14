@@ -43,6 +43,17 @@ import { AppComponent } from './app.component';
                         loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
                         canActivate: [AppRouteGuard]
                     },
+                    {
+                        path: 'class-courses/courses',
+                        loadChildren: () => import('./class-courses/courses/courses.module').then(m => m.CoursesModule),
+                        canActivate: [AppRouteGuard]
+                    },
+                    {
+                        path: 'class-subjects/subjects',
+                        loadChildren: () => import('./class-subjects/subjects/subjects.module').then(m => m.SubjectsModule),
+                        canActivate: [AppRouteGuard]
+                    }
+                    
                 ]
             }
         ])

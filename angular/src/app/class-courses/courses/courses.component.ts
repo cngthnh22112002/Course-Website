@@ -43,7 +43,7 @@ export class CoursesComponent extends AppComponentBase implements OnInit {
   addCourse() {
     this.courses.push({
       name: 'New Course',
-      imageUrl: 'https://example.com/path/to/new-course-image.jpg',
+      imageUrl: 'https://clarkes.team/wp-content/uploads/2023/07/Redis.png',
       description: 'Description of the new course.',
       subjects: ['Subject 1', 'Subject 2']
     });
@@ -51,7 +51,21 @@ export class CoursesComponent extends AppComponentBase implements OnInit {
   }
 
   selectCourse(course: any) {
-    this.selectedCourse = course;
+    this.getCourseDetails(course.id);
+  }
+
+  getCourseDetails(courseId: string) {
+    this.courseService.getCourseDetails(courseId).pipe(
+      tap((data) => {
+        console.log(data);
+        this.selectedCourse = data.result; // Assuming the response has a 'result' field
+        this.cdr.detectChanges();
+      }),
+      catchError((error) => {
+        console.error('Error fetching course details:', error);
+        return of(null);
+      })
+    ).subscribe();
   }
 
   closeDialog() {

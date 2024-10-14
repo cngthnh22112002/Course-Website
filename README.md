@@ -1,37 +1,52 @@
-# Important
-
-Issues of this repository are tracked on https://github.com/aspnetboilerplate/aspnetboilerplate. Please create your issues on https://github.com/aspnetboilerplate/aspnetboilerplate/issues.
-
 # Introduction
 
-This is a template to create **ASP.NET Core MVC / Angular** based startup projects for [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). It has 2 different versions:
+This project is a **Course Management Web Application** built on the **ASP.NET Core MVC / Angular** framework, utilizing the [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents) template. The application aims to provide a platform for employers to assess candidates' skills through course management features.
 
-1. [ASP.NET Core MVC & jQuery](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core) (server rendered multi-page application).
-2. [ASP.NET Core & Angular](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular) (single page application).
- 
-User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminLTE).
- 
-# Download
+## Project Features
 
-Create & download your project from https://aspnetboilerplate.com/Templates
+- **Course Management**: Create, update, and manage courses effectively.
+- **Subject Management**: Create, update, and manage subjects effectively.
+- **Authentication**: Different access levels for administrators and regular users from the setup boilerplate.
 
-# Screenshots
+## Versions
 
-#### Sample Dashboard Page
-![](_screenshots/module-zero-core-template-ui-home.png)
+1. **ASP.NET Core MVC & jQuery**: Server-rendered multi-page application.
+2. **ASP.NET Core & Angular**: Single-page application.
 
-#### User Creation Modal
-![](_screenshots/module-zero-core-template-ui-user-create-modal.png)
+## Download
 
-#### Login Page
+Create and download your project from [Course Website Project](https://github.com/cngthnh22112002/Course-website).
 
-![](_screenshots/module-zero-core-template-ui-login.png)
+## Starting the Application
 
-# Documentation
+To start the application:
+- For the ASP.NET Core version, select `Web.Host` as the default project and run it according to the ASP.NET Boilerplate documentation.
+- For the Angular version, use the command `npm start`.
 
-* [ASP.NET Core MVC & jQuery version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core)
-* [ASP.NET Core & Angular  version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular)
+### Configuration
 
-# License
+Make sure to change the connection string in `application.json` to match your database.
 
-[MIT](LICENSE).
+### Default Credentials
+- Username: `admin`
+- Password: `123qwe`
+
+## Screenshots
+
+#### Sample Login Page
+![Login](./_screenshots/login.png)
+
+#### List of courses
+![Courses](./_screenshots/courses.png)
+
+#### Course detail
+![Subjects](./_screenshots/subjects.png)
+
+## Documentation
+
+- [ASP.NET Core MVC & jQuery version](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core)
+- [ASP.NET Core & Angular version](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).

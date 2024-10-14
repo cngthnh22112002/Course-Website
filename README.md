@@ -33,14 +33,14 @@ Make sure to change the connection string in `application.json` to match your da
 
 ## Screenshots
 
-#### Sample Dashboard Page
-![Dashboard](screenshots/module-zero-core-template-ui-home.png)
+#### Sample Login Page
+![Login](screenshots/login.png)
 
-#### User Creation Modal
-![User Creation](screenshots/module-zero-core-template-ui-user-create-modal.png)
+#### List of courses
+![Courses](screenshots/courses.png)
 
-#### Login Page
-![Login](screenshots/module-zero-core-template-ui-login.png)
+#### Course detail
+![Subjects](screenshots/subjects.png)
 
 ## Documentation
 

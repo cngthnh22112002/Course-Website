@@ -1,42 +1,70 @@
-.course-offerings {
+.header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Khoảng cách giữa các thẻ */
-  justify-content: flex-start; /* Căn các thẻ bắt đầu từ trái */
-  align-items: flex-start; /* Căn các thẻ theo dòng đầu tiên */
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.button-modern {
+  background-color: #007bff; 
+  color: white; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-modern:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.button-modern:active {
+  transform: translateY(1px);
+}
+
+.course-offerings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .course {
   text-align: left;
-  border: 1px solid #ddd;
-  padding: 30px; /* Thay đổi padding để làm thẻ dài hơn */
+  border: 1px solid #ccc; 
+  padding: 20px;
   border-radius: 10px;
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 0 1 calc(25% - 10px); /* Chia mỗi thẻ thành 25% chiều rộng, trừ khoảng cách */
-  box-sizing: border-box;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .course:hover {
   transform: translateY(-5px);
+  background-color: #f0f0f0;
 }
 
 .course img {
   width: 100%;
-  height: 160px; /* Chiều cao ảnh */
+  height: 160px;
   border-radius: 10px;
-  margin-bottom: 15px;
-  object-fit: cover; /* Đảm bảo ảnh vừa với khung */
+  margin-bottom: 10px;
+  object-fit: cover;
   display: block;
 }
 
 .course h2 {
-  font-size: 18px;
-  color: #333;
+  font-size: 16px;
+  color: #444;
   font-weight: bold;
-  margin: 0;
+  margin: 10px 0;
   font-family: 'Montserrat', sans-serif;
+  min-height: 2.5em;
+  line-height: 1.2;
 }
 
 .dialog-overlay {
@@ -75,25 +103,38 @@
   font-size: 24px;
 }
 
+.close-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
 .dialog-body table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.dialog-body th, .dialog-body td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
 .dialog-body th {
   background-color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
 }
 
 .dialog-body td {
-  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
 }
 
-
-
-
+.dialog-body td:nth-child(3) {
+  text-align: justify;
+}

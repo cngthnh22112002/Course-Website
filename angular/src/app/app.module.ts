@@ -22,6 +22,8 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
     declarations: [
@@ -50,7 +52,9 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         TabsModule,
         ServiceProxyModule,
         NgxPaginationModule,
-        SharedModule
+        SharedModule,
+        MatDialogModule,
+        MatButtonModule,
     ],
     providers: []
 })

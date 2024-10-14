@@ -34,13 +34,13 @@ Make sure to change the connection string in `application.json` to match your da
 ## Screenshots
 
 #### Sample Login Page
-![Login](screenshots/login.png)
+![Login](./_screenshots/login.png)
 
 #### List of courses
-![Courses](screenshots/courses.png)
+![Courses](./_screenshots/courses.png)
 
 #### Course detail
-![Subjects](screenshots/subjects.png)
+![Subjects](./_screenshots/subjects.png)
 
 ## Documentation
 
